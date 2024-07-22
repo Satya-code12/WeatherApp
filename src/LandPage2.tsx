@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 function Content (){
   return(
     <>
@@ -8,8 +11,9 @@ function Content (){
      <div className="flex mt-[2.5rem] ml-[9rem]">
         <div>
           <input className="h-[3rem] w-[15rem] rounded-md outline-0 p-1 backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-500 border border-gray-300 text-white" type="text" placeholder="Search Here" />
+          <button className='ml-2 h-[3rem] w-[2rem] text-white rounded-md outline-0 p-1 backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-500 border border-gray-300 text-white'> <FontAwesomeIcon icon={faSearch} /> </button>
         </div>
-        <div className=" h-9 flex ml-[18.5rem] backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-500 rounded-md h-[3rem] w-[20rem] border border-gray-300">
+        <div className=" h-9 flex ml-[15.9rem] backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-500 rounded-md h-[3rem] w-[20rem] border border-gray-300">
           <h1 className="text-white p-[.6rem]" >Filters</h1>
 
           <select className="m-[.4rem] rounded-sm backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-700 text-white">

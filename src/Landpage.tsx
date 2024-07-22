@@ -4,7 +4,7 @@ function Navbar () {
   return(
     <>
       <section  className="h-screen">
-      <div className="ml-[8.4rem] mr-[8.4rem] py-5 flex text-white">
+      <div className="ml-[9.1rem] mr-[8.4rem] py-5 flex text-white">
         <h2 className="text-2xl font font-semibold">Dark Weather</h2>
         <h2 className="ml-[9rem] cursor-pointer">Home</h2>
         <h2 className="ml-9 cursor-pointer">Download App</h2>
