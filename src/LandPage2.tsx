@@ -1,7 +1,24 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function Content (){
+
+  const Api ="https://api.openweathermap.org/data/2.5/weather?lat=20.5937&lon=78.9629&appid=51b7e07a039253d3045ad93e4794f3ec";
+  const fetchApi = async (url)=>{
+    try{
+      const res = await fetch(url);
+      const data = res.json();
+      console.log(data);
+    }catch(error){
+      console.log(error);
+      
+    }
+  }
+  React.useEffect(()=>{
+    fetchApi(Api);
+  },[])
+
   return(
     <>
       <div className="flex flex-col justify-center items-center h-[3rem] mt-[2rem] w-[37rem] ml-[18rem] p-3 text-white">
