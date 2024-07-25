@@ -5,17 +5,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 function Content (){
 
   const Api ="https://api.openweathermap.org/data/2.5/weather?lat=20.5937&lon=78.9629&appid=51b7e07a039253d3045ad93e4794f3ec";
-  const fetchApi = async (url: string)=>{
+  const fetchApi = async (url)=>{
     try{
       const res = await fetch(url);
-      if (!res.ok) {
-        throw res;
-      }
       const data = res.json();
       console.log(data);
-    }catch(error: any){
-      const res = error as Response; //implicit data object
-      console.log(res.status);
+    }catch(error){
+      console.log(error);
+      
     }
   }
   React.useEffect(()=>{
@@ -58,20 +55,20 @@ function Content (){
 
      {/* ===============Card Section================= */}
 
-    <div className="flex h-[547.46px] mt-[3rem] w-[1,272.42px]">
-      <div className="backdrop-filter backdrop-blur-sm bg-opacity-10 bg-gray-600  ml-[7.2rem] w-[1,272.42px] flex flex-col justify-center items-start pl-3 text-white rounded-[20px] text-xl">
+    <div className="flex h-[16rem] mt-[3rem]">
+      <div className="backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-600 border border-gray-300 w-[13rem] ml-[9rem] flex flex-col justify-center items-start pl-3 text-white rounded-lg text-xl">
         <h1>Tehran 35</h1>
         <h1>Wind speed: 11km</h1>
         <h1>Tuesday 19:52</h1>
         <h1>Cloudy</h1>
       </div>
-      <div className="backdrop-filter backdrop-blur-sm bg-opacity-10 bg-gray-600  ml-[7.2rem] w-[1,272.42px] flex flex-col justify-center items-start pl-3 text-white rounded-[20px] text-xl">
+      <div className="backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-600 border border-gray-300 ml-[7.2rem] w-[13rem] flex flex-col justify-center items-start pl-3 text-white rounded-lg text-xl">
         <h1>Tehran 35</h1>
         <h1>Wind speed: 11km</h1>
         <h1>Tuesday 19:52</h1>
         <h1>Cloudy</h1>
       </div>
-      <div className="backdrop-filter backdrop-blur-sm bg-opacity-10 bg-gray-600  ml-[7.2rem] w-[1,272.42px] flex flex-col justify-center items-start pl-3 text-white rounded-[20px] text-xl">
+      <div className="backdrop-filter backdrop-blur-md bg-opacity-10 bg-gray-600 border border-gray-300 ml-[7.2rem] w-[13rem] flex flex-col justify-center items-start pl-3 text-white rounded-lg text-xl">
         <h1>Tehran 35</h1>
         <h1>Wind speed: 11km</h1>
         <h1>Tuesday 19:52</h1>

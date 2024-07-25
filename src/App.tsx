@@ -1,15 +1,11 @@
-import { Navbar } from "./Landpage";
+import Layout from "./layout";
+import { Home } from "./Pages/Home";
 
 function App() {
   return (
-    <>
-      {/* <div className="h-screen flex justify-center items-center flex-col">
-        <h1 className="text-[3rem] font-brand">Weather App</h1>
-        <p>Made with Satya</p>
-      </div> */}
-      <Navbar/>
-      
-    </>
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
 
