@@ -1,26 +1,23 @@
-function Navbar() {
-  return (
-    <>
-      <nav className="container mx-auto max-w-[1080px]">
-        <div className="flex items-center justify-between text-white">
-          <h2 className="text-2xl font font-semibold">Dark Weather</h2>
-          <div className="flex gap-x-8 xl:gap-x-16 h-fit">
-            <p className="cursor-pointer text-lg">Home</p>
-            <p className="cursor-pointer text-lg">Download App</p>
-            <p className="cursor-pointer text-lg">Contact us</p>
-          </div>
-          <button
-            className="px-[17.5px] py-[10px] rounded-[12px]  font-semibold"
-            style={{
-              background: "linear-gradient(-56deg, #3A5E72 0%, #5C93B1 100%)",
-            }}
-          >
-            Sign up
-          </button>
-        </div>
-      </nav>
-    </>
+import React from 'react'
+
+const Navbar = () =>{
+  return(
+    <nav className='container flex justify-between mx-auto 2xl:px-12 xl:px-12 lg:px-12'>
+      <div>
+        <h1 className='text-[30px] font-semibold text-white'>Dark Weather</h1>
+      </div>
+      <div className='flex justify-between gap-9 text-[20px] font-medium pt-2 text-white '>
+        <p>Home</p>
+        <p>Download App</p>
+        <p>Contact us</p>
+      </div>
+      <div>
+        <button className='text-[20px] h-[55px] w-[110px] rounded-lg text-white' style={{
+          background: "linear-gradient(#3A5E72, #5C93B1)"
+        }}>Sign up</button>
+      </div>
+    </nav>
   );
 }
 
-export { Navbar };
+export {Navbar};

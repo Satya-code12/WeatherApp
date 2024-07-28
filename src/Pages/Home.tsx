@@ -1,37 +1,33 @@
+import React from "react";
+import { Navbar } from "../Components/Navbar";
+import { Search } from "../Components/SearchBar";
 import { Filters } from "../Components/Filters";
-import { SearchBar } from "../Components/SearchBar";
 import { WeatherCard } from "../Components/WeatherCard";
-
-interface IHomeProps {}
-
-export function Home(props: IHomeProps) {
-  return (
-    <div className="">
-      <h3 className="text-center text-white text-[40px] w-[750px] mx-auto mt-[5rem]">
-        Seeing the weather of the whole world with{" "}
-        <span
-          className="font-bold"
-          style={{
-            background: "-webkit-linear-gradient(#CAECFF, #78CFFF",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Dark Weather!
-        </span>
-      </h3>
-      <div className="flex justify-between mt-[5rem] mx-auto">
-        <SearchBar />
-        <Filters />
-      </div>
-
-      <section className="mt-[10rem] ">
-        <div className="flex justify-between mx-auto">
-          <WeatherCard />
-          <WeatherCard />
-          <WeatherCard />
-        </div>
-      </section>
-    </div>
-  );
+interface HomeProps{
 }
+
+const Home: React.FC <HomeProps> =(props)=>{
+  return(
+    <>
+      <main className="pt-4 pb-10 2xl:overflow-hidden xl:overflow-hidden 2xl:pt-7 xl:pt-7 lg:overflow-hidden lg:pt-7">
+      <Navbar/>
+      <p className="mt-6 w-[700px] h-[90px] mx-auto text-[37px] text-center text-white">Seeing the weather of the whole world with <span className="font-semibold" style={{
+        background: "-webkit-linear-gradient(0deg, #CAECFF 100%, #78CFFF 100%)",
+        WebkitBackgroundClip : "text",
+        WebkitTextFillColor : "transparent"
+      }}>Dark Weather!</span>
+      </p>
+      <div className="container flex justify-between mx-auto mt-10 2xl:px-12 xl:px-12 lg:px-12 ">
+      <Search />
+      <Filters />
+      </div>
+      <div className="flex  container mx-auto justify-between mt-16 2xl:px-12 xl:px-12 lg:px-12 lg:gap-6 ">
+        <WeatherCard />
+        <WeatherCard />
+        <WeatherCard />
+      </div>
+      </main>
+    </>
+  );
+};
+export {Home};

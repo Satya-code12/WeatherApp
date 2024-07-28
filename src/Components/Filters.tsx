@@ -1,20 +1,28 @@
-import * as React from "react";
+import React from "react";
 
-export interface IFiltersProps {}
 
-export function Filters(props: IFiltersProps) {
-  return (
-    <div className="bg-[#24343D] text-white w-fit h-[40px] rounded-[8px] px-6 p-1 flex items-center gap-x-4">
-      <span>Filters</span>
-      <div className="bg-black/40 h-full w-fit px-4 py-1 rounded-md border border-white/40">
-        Coldest
-      </div>
-      <div className="bg-black/40 h-full w-fit px-4 py-1 rounded-md border border-white/40">
-        Coldest
-      </div>
-      <div className="bg-black/40 h-full w-fit px-4 py-1 rounded-md border border-white/40">
-        Coldest
+const Filters =()=>{
+  return(
+    <div className=" h-[45px] w-[450px] bg-[#24343D] rounded-lg px-4 py-1 ">
+      <div className="flex justify-between h-full w-full">
+      <p className="text-[20px] text-white">Filters</p>
+      <select name="Weather" id="" className="rounded-lg bg-[#1F2D346E] border border-white text-white outline-none">
+        <option value="Coldest">Coldest</option>
+        <option value="Coldest">Hotest</option>
+        <option value="Coldest">Hot</option>
+      </select>
+      <select name="Weather2" id="" className="rounded-lg bg-[#1F2D346E] border border-white text-white outline-none">
+        <option value="Coldest">Coldest</option>
+        <option value="Coldest">Hotest</option>
+        <option value="Coldest">Hot</option>
+      </select>
+      <select name="Weather3" id="" className="rounded-lg bg-[#1F2D346E] border border-white text-white outline-none">
+        <option value="Coldest">Coldest</option>
+        <option value="Coldest">Hotest</option>
+        <option value="Coldest">Hot</option>
+      </select>
       </div>
     </div>
   );
 }
+export {Filters};

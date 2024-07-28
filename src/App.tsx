@@ -1,11 +1,8 @@
-import Layout from "./layout";
+import React from "react";
 import { Home } from "./Pages/Home";
-
-function App() {
-  return (
-    <Layout>
-      <Home />
-    </Layout>
+const App =()=>{
+  return(
+    <Home/>
   );
 }
 
