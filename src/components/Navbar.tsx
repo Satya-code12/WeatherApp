@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <>
-      <nav className="container mx-auto max-w-[1080px]">
+      <nav className="container mx-auto max-w-[1080px] py-1">
         <div className="flex items-center justify-between text-white">
           <h2 className="text-2xl font font-semibold">Dark Weather</h2>
           <div className="flex gap-x-8 xl:gap-x-16 h-fit">

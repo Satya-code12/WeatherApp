@@ -27,9 +27,12 @@ export function Home(props: IHomeProps) {
 
       <section className="mt-[10rem] ">
         <div className="flex justify-between mx-auto">
-          <WeatherCard />
-          <WeatherCard />
-          <WeatherCard />
+          {/* Angul */}
+          <WeatherCard lat={20.8653} lon={85.1842} />
+          {/* Dehradun */}
+          <WeatherCard lat={30.3165} lon={78.0322} />
+          {/* Los Angeles */}
+          <WeatherCard lat={40.066} lon={-79.892} />
         </div>
       </section>
     </div>
