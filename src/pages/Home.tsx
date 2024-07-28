@@ -2,9 +2,7 @@ import { Filters } from "../components/Filters";
 import { SearchBar } from "../components/SearchBar";
 import { WeatherCard } from "../components/WeatherCard";
 
-interface IHomeProps {}
-
-export function Home(props: IHomeProps) {
+export function Home() {
   return (
     <div className="">
       <h3 className="text-center text-white text-[40px] w-[750px] mx-auto mt-[5rem]">
