@@ -4,6 +4,7 @@ import Clear from "../assets/clear.png";
 import Rain from "../assets/rain.png";
 import { FetchWeather, WeatherType } from "../service";
 import debounce from "../utils/debounce";
+import { useFilter } from "../contexts/FilterContext";
 
 export interface IWeatherCardProps {
   lat: number;
@@ -19,21 +20,24 @@ export function WeatherCard(props: IWeatherCardProps) {
 
   const { lat, lon } = props;
 
+  const { tempratureUnit } = useFilter();
+
   const getWeatherData = debounce(async () => {
     handleWeatherData();
   }, 1000);
 
   React.useEffect(() => {
     if (lat && lon) {
-      setTimeout(() => {
-        getWeatherData();
-      }, 5000);
+      setLocationName(null);
+      setTemperature(null);
+      setWeatherType(null);
+      getWeatherData();
     }
-  }, []);
+  }, [tempratureUnit]);
 
   async function handleWeatherData() {
     try {
-      const weatherData = await FetchWeather(lat, lon);
+      const weatherData = await FetchWeather(lat, lon, tempratureUnit);
 
       if (typeof weatherData === "string") {
         throw weatherData;
@@ -80,7 +84,7 @@ export function WeatherCard(props: IWeatherCardProps) {
       />
       <p className="text-[40px]  w-[80%] mx-auto text-white font-light">
         <span className="font-semibold">{locationName}</span>{" "}
-        {temprature.toFixed(1)} °C
+        {temprature.toFixed(1)} {tempratureUnit === "metric" ? "°C" : "°F"}
       </p>
       <p className="text-[25px] text-white w-[80%] mx-auto mt-4 ">
         wind speed : 11 km

@@ -10,7 +10,7 @@ export function Home() {
         <span
           className="font-bold"
           style={{
-            background: "-webkit-linear-gradient(#CAECFF, #78CFFF",
+            background: "-webkit-linear-gradient(#CAECFF, #78CFFF)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
