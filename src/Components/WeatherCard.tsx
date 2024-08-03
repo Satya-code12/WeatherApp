@@ -32,6 +32,7 @@ const WeatherCard =(props: any)=>{
   }
 
   useEffect(()=>{
+    setState(null);
     fetchWeatherData();
   }, [])
 
@@ -42,8 +43,8 @@ const WeatherCard =(props: any)=>{
       alt="partly cloudy"
       className="absolute -top-[90px] -right-[35px] scale-105"
     />
-    <p className="text-[35px]  w-[80%] mx-auto text-white font-light">
-      <span className="font-semibold">{data}</span>
+    <p className="text-[35px]  w-[80%] mx-auto text-white font-light">{state?.name}
+      <span className="font-semibold">{state?.main.temp}</span>
     </p>
     <p className="text-[20px] text-white w-[80%] mx-auto mt-4 ">
       wind speed : 11 km

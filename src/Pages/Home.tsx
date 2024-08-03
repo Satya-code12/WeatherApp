@@ -22,7 +22,7 @@ const Home: React.FC <HomeProps> =()=>{
       <Filters />
       </div>
       <div className="flex  container mx-auto justify-between mt-16 2xl:px-12 xl:px-12 lg:px-12 lg:gap-6 ">
-        <WeatherCard lat={20.296} lon={85.8245}/>
+        <WeatherCard lat={51.5072} lon={0.1276}/>
         {/* <WeatherCard />
         <WeatherCard /> */}
       </div>
