@@ -2,16 +2,11 @@ import * as React from "react";
 import Clouds from "../assets/pcloudy.png";
 import Clear from "../assets/clear.png";
 import Rain from "../assets/rain.png";
-import { FetchWeather, WeatherType } from "../service";
+import { Coordinates, FetchWeather, WeatherType } from "../service";
 import debounce from "../utils/debounce";
 import { useFilter } from "../contexts/FilterContext";
 
-export interface IWeatherCardProps {
-  lat: number;
-  lon: number;
-}
-
-export function WeatherCard(props: IWeatherCardProps) {
+export function WeatherCard(props: Coordinates) {
   const [locationName, setLocationName] = React.useState<string | null>(null);
   const [temprature, setTemperature] = React.useState<number | null>(null);
   const [weatherType, setWeatherType] = React.useState<WeatherType | null>(

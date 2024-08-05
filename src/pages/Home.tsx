@@ -1,8 +1,34 @@
+import React from "react";
+
 import { Filters } from "../components/Filters";
 import { SearchBar } from "../components/SearchBar";
 import { WeatherCard } from "../components/WeatherCard";
+import { useFilter } from "../contexts/FilterContext";
+import { Coordinates, FetchCoordinates } from "../service";
+import debounce from "../utils/debounce";
 
 export function Home() {
+  const { searchQuery } = useFilter();
+
+  const [coordinates, setCoordinates] = React.useState<Coordinates | null>(
+    null
+  );
+
+  const getCoordinates = debounce(async () => {
+    const data = await FetchCoordinates(searchQuery);
+
+    if (!data) {
+      return;
+    }
+    const { lat, lon } = data[0];
+    setCoordinates({ lat, lon });
+  }, 1000);
+
+  React.useEffect(() => {
+    setCoordinates(null);
+    getCoordinates();
+  }, [searchQuery]);
+
   return (
     <div className="">
       <h3 className="text-center text-white text-[40px] w-[750px] mx-auto mt-[5rem]">
@@ -24,13 +50,12 @@ export function Home() {
       </div>
 
       <section className="mt-[10rem] ">
-        <div className="flex justify-between mx-auto">
-          {/* Angul */}
-          <WeatherCard lat={20.8653} lon={85.1842} />
-          {/* Dehradun */}
-          <WeatherCard lat={30.3165} lon={78.0322} />
-          {/* Los Angeles */}
-          <WeatherCard lat={40.066} lon={-79.892} />
+        <div className="flex justify-center mx-auto">
+          {coordinates ? (
+            <WeatherCard {...coordinates} />
+          ) : (
+            <div className="text-white">Loading...</div>
+          )}
         </div>
       </section>
     </div>
