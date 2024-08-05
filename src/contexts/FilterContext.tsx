@@ -17,7 +17,7 @@ const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [tempratureUnit, setTempratureUnit] =
     React.useState<TempratureUnit>("metric");
 
-  const [searchQuery, setSearchQuery] = React.useState<string>("Angul");
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
 
   return (
     <FilterContext.Provider

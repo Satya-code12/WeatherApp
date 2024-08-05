@@ -4,7 +4,7 @@ import { Filters } from "../components/Filters";
 import { SearchBar } from "../components/SearchBar";
 import { WeatherCard } from "../components/WeatherCard";
 import { useFilter } from "../contexts/FilterContext";
-import { Coordinates, FetchCoordinates } from "../service";
+import { Coordinates, FetchCoordinates, GetUSerCoordinates } from "../service";
 import debounce from "../utils/debounce";
 
 export function Home() {
@@ -24,9 +24,26 @@ export function Home() {
     setCoordinates({ lat, lon });
   }, 1000);
 
+const getLocalCoordinates = debounce(async () =>{
+  const data = await GetUSerCoordinates();
+  if(!data){
+    setCoordinates({
+      lat: 10, lon: 10
+    })
+    return;
+  }
+  const {lat, lon} = data;
+  setCoordinates({lat, lon});
+}, 1000)
+
   React.useEffect(() => {
     setCoordinates(null);
-    getCoordinates();
+    if(searchQuery !== ""){
+      getCoordinates();
+    }
+    else{
+      getLocalCoordinates();
+    }
   }, [searchQuery]);
 
   return (
