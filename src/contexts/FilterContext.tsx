@@ -1,10 +1,11 @@
 import React from "react";
+import { SearchResult } from "../service";
 
 export type TempratureUnit = "metric" | "imperial";
 
 interface IFilterContext {
-  searchQuery: string;
-  setSearchQuery: (searchQuery: string) => void;
+  searchLocation: SearchResult | null;
+  setSearchLocation: (location: SearchResult | null) => void;
   tempratureUnit: TempratureUnit;
   setTempratureUnit: (tempratureUnit: TempratureUnit) => void;
 }
@@ -17,11 +18,17 @@ const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [tempratureUnit, setTempratureUnit] =
     React.useState<TempratureUnit>("metric");
 
-  const [searchQuery, setSearchQuery] = React.useState<string>("");
+  const [searchLocation, setSearchLocation] =
+    React.useState<SearchResult | null>(null);
 
   return (
     <FilterContext.Provider
-      value={{ tempratureUnit, setTempratureUnit, searchQuery, setSearchQuery }}
+      value={{
+        tempratureUnit,
+        setTempratureUnit,
+        searchLocation,
+        setSearchLocation,
+      }}
     >
       {children}
     </FilterContext.Provider>

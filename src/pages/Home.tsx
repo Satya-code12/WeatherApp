@@ -8,21 +8,21 @@ import { Coordinates, FetchCoordinates, GetUserCoordinates } from "../service";
 import debounce from "../utils/debounce";
 
 export function Home() {
-  const { searchQuery } = useFilter();
+  const { searchLocation } = useFilter();
 
   const [coordinates, setCoordinates] = React.useState<Coordinates | null>(
     null
   );
 
-  const getCoordinates = debounce(async () => {
-    const data = await FetchCoordinates(searchQuery);
+  // const getCoordinates = debounce(async () => {
+  //   const data = await FetchCoordinates(searchQuery);
 
-    if (!data) {
-      return;
-    }
-    const { lat, lon } = data[0];
-    setCoordinates({ lat, lon });
-  }, 1000);
+  //   if (!data) {
+  //     return;
+  //   }
+  //   const { lat, lon } = data[0];
+  //   setCoordinates({ lat, lon });
+  // }, 1000);
 
   const getLocalCoordinates = debounce(async () => {
     const data = await GetUserCoordinates();
@@ -38,13 +38,15 @@ export function Home() {
   }, 1000);
 
   React.useEffect(() => {
-    setCoordinates(null);
-    if (searchQuery !== "") {
-      getCoordinates();
+    if (searchLocation) {
+      setCoordinates({
+        lat: searchLocation.lat,
+        lon: searchLocation.lon,
+      });
     } else {
       getLocalCoordinates();
     }
-  }, [searchQuery]);
+  }, [searchLocation]);
 
   return (
     <div className="">
