@@ -71,3 +71,17 @@ export async function FetchCoordinates(
     }
   });
 }
+
+export async function GetUserCoordinates(): Promise<Coordinates | null> {
+  return new Promise(async (resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        resolve({ lat: latitude, lon: longitude });
+      },
+      (error) => {
+        reject(error);
+      }
+    );
+  });
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useFilter } from "../contexts/FilterContext";
+import { GetUserCoordinates } from "../service";
 
 export function SearchBar() {
   const { searchQuery, setSearchQuery } = useFilter();
@@ -8,6 +9,18 @@ export function SearchBar() {
   React.useEffect(() => {
     setText(searchQuery);
   }, [searchQuery]);
+
+  React.useEffect(() => {
+    GetUserCoordinates()
+      .then((data) => {
+        if (data) {
+          console.log({ data });
+        }
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
+  }, []);
 
   return (
     <div className="bg-[#364f5d] text-white w-[220px] h-[40px] rounded-[8px] p-1 px-3">
