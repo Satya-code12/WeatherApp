@@ -15,10 +15,17 @@ export type WeatherAPIData = {
   [key: string]: any;
 };
 
-export type Coordinates = {
+export interface Coordinates {
   lat: number;
   lon: number;
-};
+}
+
+export interface SearchResult extends Coordinates {
+  name: string;
+  country: string;
+  state: string;
+  [key: string]: any;
+}
 
 export type WeatherType = "Clear" | "Clouds" | "Rain" | "Snow";
 
@@ -51,7 +58,7 @@ export async function FetchWeather(
 
 export async function FetchCoordinates(
   query: string
-): Promise<Coordinates[] | null> {
+): Promise<SearchResult[] | null> {
   const url = `http://api.openweathermap.org/geo/1.0/direct?appid=${APP_ID}&q=${query}&limit=5`;
 
   return new Promise(async (resolve, reject) => {
@@ -71,16 +78,17 @@ export async function FetchCoordinates(
     }
   });
 }
- export async function GetUSerCoordinates () : Promise<Coordinates | null>{
-  return new Promise(async (resolve, reject) =>{
+
+export async function GetUserCoordinates(): Promise<Coordinates | null> {
+  return new Promise(async (resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
-      (position) =>{
-        const { latitude, longitude} = position.coords;
-        resolve({lat : latitude, lon: longitude});
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        resolve({ lat: latitude, lon: longitude });
       },
-      (error) =>{
+      (error) => {
         reject(error);
       }
-    )
+    );
   });
- }
+}

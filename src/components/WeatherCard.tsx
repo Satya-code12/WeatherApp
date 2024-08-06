@@ -28,7 +28,7 @@ export function WeatherCard(props: Coordinates) {
       setWeatherType(null);
       getWeatherData();
     }
-  }, [tempratureUnit]);
+  }, [tempratureUnit, lat, lon]);
 
   async function handleWeatherData() {
     try {

@@ -4,47 +4,49 @@ import { Filters } from "../components/Filters";
 import { SearchBar } from "../components/SearchBar";
 import { WeatherCard } from "../components/WeatherCard";
 import { useFilter } from "../contexts/FilterContext";
-import { Coordinates, FetchCoordinates, GetUSerCoordinates } from "../service";
+import { Coordinates, FetchCoordinates, GetUserCoordinates } from "../service";
 import debounce from "../utils/debounce";
 
 export function Home() {
-  const { searchQuery } = useFilter();
+  const { searchLocation } = useFilter();
 
   const [coordinates, setCoordinates] = React.useState<Coordinates | null>(
     null
   );
 
-  const getCoordinates = debounce(async () => {
-    const data = await FetchCoordinates(searchQuery);
+  // const getCoordinates = debounce(async () => {
+  //   const data = await FetchCoordinates(searchQuery);
 
+  //   if (!data) {
+  //     return;
+  //   }
+  //   const { lat, lon } = data[0];
+  //   setCoordinates({ lat, lon });
+  // }, 1000);
+
+  const getLocalCoordinates = debounce(async () => {
+    const data = await GetUserCoordinates();
     if (!data) {
+      setCoordinates({
+        lat: 10,
+        lon: 10,
+      });
       return;
     }
-    const { lat, lon } = data[0];
+    const { lat, lon } = data;
     setCoordinates({ lat, lon });
   }, 1000);
 
-const getLocalCoordinates = debounce(async () =>{
-  const data = await GetUSerCoordinates();
-  if(!data){
-    setCoordinates({
-      lat: 10, lon: 10
-    })
-    return;
-  }
-  const {lat, lon} = data;
-  setCoordinates({lat, lon});
-}, 1000)
-
   React.useEffect(() => {
-    setCoordinates(null);
-    if(searchQuery !== ""){
-      getCoordinates();
-    }
-    else{
+    if (searchLocation) {
+      setCoordinates({
+        lat: searchLocation.lat,
+        lon: searchLocation.lon,
+      });
+    } else {
       getLocalCoordinates();
     }
-  }, [searchQuery]);
+  }, [searchLocation]);
 
   return (
     <div className="">
