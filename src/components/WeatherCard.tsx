@@ -65,7 +65,7 @@ export function WeatherCard(props: Coordinates) {
   }
 
   return (
-    <div className="min-h-[450px] w-[320px]  rounded-[20px] bg-[#4d718329] backdrop-blur-sm shadow-sm shadow-[#4c6f8280]/20 relative pt-[10rem] pb-[3rem]">
+    <div className="min-h-[400px] w-[700px]  rounded-[20px] bg-[#4d718329] backdrop-blur-sm shadow-sm shadow-[#4c6f8280]/20 relative pt-[10rem] pb-[3rem]">
       <img
         src={getWeatherIcon()}
         alt={weatherType as string}

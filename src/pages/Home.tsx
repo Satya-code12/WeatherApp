@@ -68,7 +68,7 @@ export function Home() {
         <Filters />
       </div>
 
-      <section className="mt-[10rem] ">
+      <section className="mt-[5rem] ">
         <div className="flex justify-center mx-auto">
           {coordinates ? (
             <WeatherCard {...coordinates} />
