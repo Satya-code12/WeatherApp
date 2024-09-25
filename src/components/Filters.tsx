@@ -1,4 +1,5 @@
-import { TempratureUnit, useFilter } from "../contexts/FilterContext";
+import { useFilter } from "../contexts/FilterContext";
+import { TempratureUnit } from "../types";
 
 export function Filters() {
   const { tempratureUnit, setTempratureUnit } = useFilter();

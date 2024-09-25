@@ -1,7 +1,7 @@
 import React from "react";
 import { SearchResult } from "../service";
+import { TempratureUnit } from "../types";
 
-export type TempratureUnit = "metric" | "imperial";
 
 interface IFilterContext {
   searchLocation: SearchResult | null;

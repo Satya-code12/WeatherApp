@@ -1,18 +1,18 @@
-import { TempratureUnit } from "./contexts/FilterContext";
+import { TempratureUnit } from "./types";
 
 export type WeatherAPIData = {
   name: string;
   main: {
     temp: number;
-    [key: string]: any;
+    [key: string]: object | string | number;
   };
   weather: [
     {
       main: WeatherType;
-      [key: string]: any;
+      [key: string]: object | string | number;
     }
   ];
-  [key: string]: any;
+  [key: string]: object | string | number;
 };
 
 export interface Coordinates {
@@ -24,7 +24,7 @@ export interface SearchResult extends Coordinates {
   name: string;
   country: string;
   state: string;
-  [key: string]: any;
+  [key: string]: object | string | number;
 }
 
 export type WeatherType = "Clear" | "Clouds" | "Rain" | "Snow";

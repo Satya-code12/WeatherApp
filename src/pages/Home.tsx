@@ -4,7 +4,7 @@ import { Filters } from "../components/Filters";
 import { SearchBar } from "../components/SearchBar";
 import { WeatherCard } from "../components/WeatherCard";
 import { useFilter } from "../contexts/FilterContext";
-import { Coordinates, FetchCoordinates, GetUserCoordinates } from "../service";
+import { Coordinates ,GetUserCoordinates } from "../service";
 import debounce from "../utils/debounce";
 
 export function Home() {
