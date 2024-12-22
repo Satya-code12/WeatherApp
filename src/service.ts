@@ -59,7 +59,7 @@ export async function FetchWeather(
 export async function FetchCoordinates(
   query: string
 ): Promise<SearchResult[] | null> {
-  const url = `http://api.openweathermap.org/geo/1.0/direct?appid=${APP_ID}&q=${query}&limit=5`;
+  const url = `https://api.openweathermap.org/geo/1.0/direct?appid=${APP_ID}&q=${query}&limit=5`;
 
   return new Promise(async (resolve, reject) => {
     try {
